@@ -9,17 +9,19 @@
         body {
             font-family: "Arial", sans-serif;
             background-color: #f7f9fc;
+            margin: 0;
+            padding: 0;
         }
         .navbar {
             background-color: #003366;
             color: white;
             padding: 10px 20px;
+            text-align: center;
         }
         .sidebar {
             height: 100%;
             width: 250px;
             position: fixed;
-            z-index: 1;
             top: 0;
             left: 0;
             background-color: #2f4f7f;
@@ -64,6 +66,9 @@
             max-width: 100%;
             height: auto;
         }
+        h2 {
+            color: #003366;
+        }
     </style>
 </head>
 <body>
@@ -75,23 +80,50 @@
 
 <!-- Sidebar -->
 <div class="sidebar">
-    <a class="tab-link" onclick="openTab('home')">Home</a>
+    <a class="tab-link" onclick="openTab('tutorials')">Tutorials</a>
+    <a class="tab-link" onclick="openTab('videos')">Videos</a>
     <a class="tab-link" onclick="openTab('podcasts')">Podcasts</a>
-    <a class="tab-link" onclick="openTab('webinars')">Webinars</a>
-    <a class="tab-link" onclick="openTab('aiVideos')">AI Videos</a>
-    <a class="tab-link" onclick="openTab('resources')">Resources</a>
-    <a class="tab-link" onclick="openTab('courses')">Courses & Certifications</a>
-    <a class="tab-link" onclick="openTab('playgrounds')">Playgrounds</a>
+    <a class="tab-link" onclick="openTab('practice')">Practice Playground</a>
+    <a class="tab-link" onclick="openTab('resources')">Additional Resources</a>
+    <a class="tab-link" onclick="openTab('certifications')">Courses & Certifications</a>
 </div>
 
 <!-- Main Content -->
 <div class="main-content">
-    <div id="home" class="tab-content active-tab">
-        <h2>Welcome to Data Engineering Roadmap</h2>
-        <p>This roadmap will help you become proficient in Data Engineering, AI, and Machine Learning.</p>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Vector_Engineering_Illustration.jpg" alt="Data Engineering" />
+
+    <!-- Tutorials Section -->
+    <div id="tutorials" class="tab-content active-tab">
+        <h2>Core Tutorials and Foundations</h2>
+        
+        <h3>SQL and Database Skills</h3>
+        <ul class="w3-ul w3-light-grey">
+            <li><a href="https://www.coursera.org/learn/sql-for-data-science" target="_blank">SQL for Data Science (Coursera)</a></li>
+            <li><a href="https://www.datacamp.com/courses/advanced-sql-for-data-engineers" target="_blank">Advanced SQL Tutorial (DataCamp)</a></li>
+            <li><a href="https://leetcode.com/problemset/database/" target="_blank">SQL Practice (LeetCode)</a></li>
+            <li><a href="https://www.w3schools.com/sql/" target="_blank">Learn SQL (W3Schools)</a></li>
+        </ul>
+
+        <h3>Big Data and Spark</h3>
+        <ul class="w3-ul w3-light-grey">
+            <li><a href="https://www.tutorialspoint.com/big_data_analytics/index.htm" target="_blank">Big Data Tutorial (TutorialsPoint)</a></li>
+            <li><a href="https://databricks.com/solutions/data-engineering" target="_blank">Spark for Data Engineering (Databricks)</a></li>
+            <li><a href="https://www.udemy.com/course/apache-spark-for-beginners/" target="_blank">Apache Spark for Beginners (Udemy)</a></li>
+        </ul>
     </div>
-    
+
+    <!-- Videos Section -->
+    <div id="videos" class="tab-content">
+        <h2>AI & Data Science Videos</h2>
+        <ul class="w3-ul w3-light-grey">
+            <li><a href="https://www.youtube.com/channel/UC_6nSFd7ZycnjHuY5o2fZg" target="_blank">Data Engineering on Google Cloud Platform</a></li>
+            <li><a href="https://www.youtube.com/c/ArtificialIntelligenceChannel" target="_blank">The Artificial Intelligence Channel</a></li>
+            <li><a href="https://www.youtube.com/c/DeepLearningAI" target="_blank">DeepLearning.AI YouTube Channel</a></li>
+            <li><a href="https://www.youtube.com/c/DataCamp" target="_blank">DataCamp's AI Tutorials</a></li>
+            <li><a href="https://www.youtube.com/c/MITCSAIL" target="_blank">MIT AI & Robotics Research Videos</a></li>
+        </ul>
+    </div>
+
+    <!-- Podcasts Section -->
     <div id="podcasts" class="tab-content">
         <h2>Podcasts to Follow</h2>
         <ul class="w3-ul w3-light-grey">
@@ -101,33 +133,21 @@
             <li><a href="https://www.alignmentforum.org/posts/24d6qpoV2WzqYjSu8/ai-alignment-podcast" target="_blank">AI Alignment Podcast</a></li>
             <li><a href="https://datascienceathome.com/" target="_blank">Data Science at Home Podcast</a></li>
         </ul>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Podcast_Logo.jpg" alt="Podcasts" />
     </div>
 
-    <div id="webinars" class="tab-content">
-        <h2>AI & Data Engineering Webinars</h2>
+    <!-- Practice Playground Section -->
+    <div id="practice" class="tab-content">
+        <h2>Playgrounds for Practice</h2>
         <ul class="w3-ul w3-light-grey">
-            <li><a href="https://cloud.google.com/blog/topics/partners/announcing-free-webinars-from-google-cloud" target="_blank">Google Cloud Webinars</a></li>
-            <li><a href="https://www.microsoft.com/en-us/ai/ai-webinars" target="_blank">AI & Data Science Webinars by Microsoft</a></li>
-            <li><a href="https://www.youtube.com/user/googlecloudplatform" target="_blank">Google Cloud YouTube Channel (Data Engineering Webinars)</a></li>
-            <li><a href="https://www.youtube.com/user/MicrosoftAzure" target="_blank">Microsoft Azure YouTube Channel (AI & Data Webinars)</a></li>
-            <li><a href="https://www.datacamp.com/webinars" target="_blank">DataCamp's Free Webinars</a></li>
+            <li><a href="https://www.kaggle.com/" target="_blank">Kaggle - Datasets & Competitions</a></li>
+            <li><a href="https://www.google.com/colab" target="_blank">Google Colab - Free Python Notebooks</a></li>
+            <li><a href="https://replit.com/" target="_blank">Replit - Online IDE for Data Science</a></li>
+            <li><a href="https://www.databricks.com/try-databricks" target="_blank">Databricks - Free Trial for Spark-Based Projects</a></li>
+            <li><a href="https://www.codeskulptor.org/" target="_blank">CodeSkulptor - Python Playground</a></li>
         </ul>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Webinar_event.jpg" alt="Webinars" />
     </div>
 
-    <div id="aiVideos" class="tab-content">
-        <h2>AI and Data Science Videos to Watch</h2>
-        <ul class="w3-ul w3-light-grey">
-            <li><a href="https://www.youtube.com/channel/UC_6nSFd7ZycnjHuY5o2fZg" target="_blank">Data Engineering on Google Cloud Platform</a></li>
-            <li><a href="https://www.youtube.com/c/ArtificialIntelligenceChannel" target="_blank">The Artificial Intelligence Channel</a></li>
-            <li><a href="https://www.youtube.com/c/DeepLearningAI" target="_blank">DeepLearning.AI YouTube Channel</a></li>
-            <li><a href="https://www.youtube.com/c/DataCamp" target="_blank">DataCamp's AI Tutorials</a></li>
-            <li><a href="https://www.youtube.com/c/MITCSAIL" target="_blank">MIT AI & Robotics Research Videos</a></li>
-        </ul>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a1/Artificial_intelligence_in_technology.jpg" alt="AI and Data Science Videos" />
-    </div>
-
+    <!-- Additional Resources Section -->
     <div id="resources" class="tab-content">
         <h2>Additional Resources</h2>
         <ul class="w3-ul w3-light-grey">
@@ -137,10 +157,10 @@
             <li><a href="https://www.fast.ai/" target="_blank">Fast.ai (Free Deep Learning Courses)</a></li>
             <li><a href="https://ai.google/education/" target="_blank">Google AI (Free Resources)</a></li>
         </ul>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Kaggle_logo.png" alt="Additional Resources" />
     </div>
 
-    <div id="courses" class="tab-content">
+    <!-- Courses & Certifications Section -->
+    <div id="certifications" class="tab-content">
         <h2>Courses & Certifications</h2>
         <ul class="w3-ul w3-light-grey">
             <li><a href="https://www.coursera.org/professional-certificates/data-engineering" target="_blank">Coursera - Data Engineering Professional Certificate</a></li>
@@ -149,20 +169,8 @@
             <li><a href="https://www.edx.org/professional-certificate/microsoft/data-science-and-ai" target="_blank">edX - Microsoft Data Science & AI Certification</a></li>
             <li><a href="https://www.linkedin.com/learning/learning-data-engineering-2" target="_blank">LinkedIn Learning - Learning Data Engineering</a></li>
         </ul>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Udemy_logo_2018.svg" alt="Courses & Certifications" />
     </div>
 
-    <div id="playgrounds" class="tab-content">
-        <h2>Playgrounds for Practice</h2>
-        <ul class="w3-ul w3-light-grey">
-            <li><a href="https://www.kaggle.com/" target="_blank">Kaggle - Datasets & Competitions</a></li>
-            <li><a href="https://www.google.com/colab" target="_blank">Google Colab - Free Python Notebooks</a></li>
-            <li><a href="https://replit.com/" target="_blank">Replit - Online IDE for Data Science</a></li>
-            <li><a href="https://www.databricks.com/try-databricks" target="_blank">Databricks - Free Trial for Spark-Based Projects</a></li>
-            <li><a href="https://www.codeskulptor.org/" target="_blank">CodeSkulptor - Python Playground</a></li>
-        </ul>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Kaggle_logo.svg" alt="Playgrounds for Practice" />
-    </div>
 </div>
 
 <!-- Footer -->
