@@ -61,3 +61,11 @@ ul.w3-ul li a:hover {
 .w3-padding-large {
     padding: 20px;
 }
+
+footer {
+    text-align: center;
+}
+
+img {
+    max-width: 100%;
+}

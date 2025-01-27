@@ -5,27 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Tech Roadmap</title>
+    <!-- W3.CSS for layout and responsiveness -->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="styles.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="w3-light-grey">
+
+    <!-- Topbar -->
+    <div class="w3-bar w3-blue w3-padding-16">
+        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-xlarge w3-text-white">Tech Roadmap</a>
+        <input type="text" class="w3-input w3-border w3-light-grey w3-margin-left" placeholder="Search..." id="searchBar" onkeyup="searchContent()">
+    </div>
 
     <div class="w3-row">
         <!-- Sidebar -->
         <div class="w3-col l3 w3-sidenav w3-blue w3-animate-left w3-padding-16" style="height:100%" id="mySidebar">
             <div class="w3-container w3-center">
+                <img src="https://via.placeholder.com/150" alt="Avatar" class="w3-circle w3-margin-top" />
                 <h2 class="w3-text-white">Tech Roadmap</h2>
-                <p class="w3-text-white">Learning Hub</p>
             </div>
             <div class="w3-bar-block">
-                <input type="text" class="w3-input w3-border w3-margin-bottom" placeholder="Search..." id="searchBar">
-                <a href="javascript:void(0)" onclick="openTab('overview')" class="w3-bar-item w3-button w3-text-white">Overview</a>
-                <a href="javascript:void(0)" onclick="openTab('courses')" class="w3-bar-item w3-button w3-text-white">Courses</a>
-                <a href="javascript:void(0)" onclick="openTab('certifications')" class="w3-bar-item w3-button w3-text-white">Certifications</a>
-                <a href="javascript:void(0)" onclick="openTab('playgrounds')" class="w3-bar-item w3-button w3-text-white">Playgrounds</a>
-                <a href="javascript:void(0)" onclick="openTab('tools')" class="w3-bar-item w3-button w3-text-white">Tools</a>
+                <a href="javascript:void(0)" onclick="openTab('overview')" class="w3-bar-item w3-button w3-text-white"><i class="fas fa-home"></i> Overview</a>
+                <a href="javascript:void(0)" onclick="openTab('courses')" class="w3-bar-item w3-button w3-text-white"><i class="fas fa-book"></i> Courses</a>
+                <a href="javascript:void(0)" onclick="openTab('certifications')" class="w3-bar-item w3-button w3-text-white"><i class="fas fa-certificate"></i> Certifications</a>
+                <a href="javascript:void(0)" onclick="openTab('playgrounds')" class="w3-bar-item w3-button w3-text-white"><i class="fas fa-laptop-code"></i> Playgrounds</a>
+                <a href="javascript:void(0)" onclick="openTab('tools')" class="w3-bar-item w3-button w3-text-white"><i class="fas fa-tools"></i> Tools</a>
             </div>
         </div>
 
@@ -34,6 +44,7 @@
             <div id="overview" class="tab-content w3-container w3-padding-large w3-border">
                 <h2>Welcome to Your Learning Path</h2>
                 <p>This roadmap is designed to help you grow your tech skills step by step. Explore each section to discover courses, tools, certifications, and more!</p>
+                <img src="https://via.placeholder.com/700x300" alt="Learning Path" class="w3-image w3-margin-bottom">
             </div>
 
             <div id="courses" class="tab-content w3-container w3-padding-large w3-border" style="display:none;">
@@ -82,6 +93,11 @@
         </div>
     </div>
 
+    <!-- Footer -->
+    <footer class="w3-container w3-blue w3-padding-16 w3-margin-top">
+        <p class="w3-text-white">Tech Roadmap | All Rights Reserved &copy; 2025</p>
+    </footer>
+
     <script>
         function openTab(tabName) {
             var i, x;
@@ -90,6 +106,25 @@
                 x[i].style.display = "none";
             }
             document.getElementById(tabName).style.display = "block";
+        }
+
+        function searchContent() {
+            var input, filter, ul, li, a, i, txtValue;
+            input = document.getElementById("searchBar");
+            filter = input.value.toUpperCase();
+            ul = document.querySelectorAll('.w3-ul');
+            for (i = 0; i < ul.length; i++) {
+                li = ul[i].getElementsByTagName("li");
+                for (let j = 0; j < li.length; j++) {
+                    a = li[j].getElementsByTagName("a")[0];
+                    txtValue = a.textContent || a.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        li[j].style.display = "";
+                    } else {
+                        li[j].style.display = "none";
+                    }
+                }
+            }
         }
 
         // Default open tab
