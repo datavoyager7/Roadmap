@@ -3,62 +3,101 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Data Engineering Roadmap</title>
+  <title>Interactive Tech Roadmap</title>
   <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <h1>Happy Birthday!</h1>
-    <p>This roadmap is designed for your journey to mastering data engineering. Track your progress, complete certifications, and practice on free platforms!</p>
-  </header>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <img src="assets/logo.png" alt="Logo" class="logo">
+        <h2>Tech Roadmap</h2>
+      </div>
+      <nav class="nav">
+        <input type="text" class="search-bar" placeholder="Search..." id="searchBar">
+        <ul>
+          <li><a href="#" onclick="showTab('overview')" class="nav-link">Overview</a></li>
+          <li><a href="#" onclick="showTab('courses')" class="nav-link">Courses</a></li>
+          <li><a href="#" onclick="showTab('certifications')" class="nav-link">Certifications</a></li>
+          <li><a href="#" onclick="showTab('playgrounds')" class="nav-link">Playgrounds</a></li>
+          <li><a href="#" onclick="showTab('tools')" class="nav-link">Tools</a></li>
+        </ul>
+      </nav>
+    </aside>
 
-  <main>
-    <!-- Tabs Navigation -->
-    <div class="tabs">
-      <button class="tab-link active" onclick="openTab(event, 'fundamentals')">1. Fundamentals</button>
-      <button class="tab-link" onclick="openTab(event, 'big-data')">2. Big Data</button>
-      <button class="tab-link" onclick="openTab(event, 'cloud')">3. Cloud Platforms</button>
-      <button class="tab-link" onclick="openTab(event, 'mlops')">4. MLOps</button>
-      <button class="tab-link" onclick="openTab(event, 'tools')">5. Productivity Tools</button>
-    </div>
+    <!-- Main Content -->
+    <main class="main-content">
+      <section id="overview" class="tab active">
+        <h2>Welcome to Your Learning Path</h2>
+        <div class="content-card">
+          <h3>Your Journey Starts Here</h3>
+          <p>This roadmap is designed to help you grow your tech skills step by step. Explore each section to discover courses, tools, certifications, and more!</p>
+        </div>
+      </section>
 
-    <!-- Tab Content -->
-
-    <!-- Fundamentals Tab -->
-    <div id="fundamentals" class="tab-content active">
-      <h2>1. Data Engineering Fundamentals</h2>
-      <ul>
-        <li>
-          <input type="checkbox" id="sql" onclick="saveProgress('sql')" />
-          <label for="sql">Learn SQL for Data Engineering</label>
-          <a href="https://www.coursera.org/learn/sql-for-data-science" target="_blank">Go to Course</a>
-        </li>
-        <li>
-          <input type="checkbox" id="etl" onclick="saveProgress('etl')" />
-          <label for="etl">Understand ETL Concepts</label>
-          <a href="https://towardsdatascience.com/what-is-etl-process-35f1c3e1e249" target="_blank">Learn More</a>
-        </li>
-        <li>
-          <strong>Free Practice Platforms:</strong>
+      <!-- Courses Section -->
+      <section id="courses" class="tab hidden">
+        <h2>Tech Courses</h2>
+        <div class="content-card">
+          <h3>Explore the Best Courses</h3>
           <ul>
-            <li><a href="https://sqlzoo.net/" target="_blank">SQLZoo</a> - Practice SQL queries.</li>
-            <li><a href="https://mode.com/sql-tutorial/" target="_blank">Mode Analytics</a> - Hands-on SQL tutorials.</li>
+            <li><a href="https://www.coursera.org/learn/aws-fundamentals-going-cloud-native" target="_blank">AWS Fundamentals</a></li>
+            <li><a href="https://www.coursera.org/learn/azure-fundamentals" target="_blank">Azure Fundamentals</a></li>
+            <li><a href="https://www.udemy.com/course/the-complete-javascript-course/" target="_blank">Complete JavaScript Course (Udemy)</a></li>
+            <li><a href="https://www.udemy.com/course/data-science-and-machine-learning-bootcamp-with-r/" target="_blank">Data Science & Machine Learning Bootcamp (Udemy)</a></li>
+            <li><a href="https://www.edx.org/professional-certificate/microsoft-azure-fundamentals" target="_blank">Microsoft Azure Fundamentals (edX)</a></li>
           </ul>
-        </li>
-        <li>
-          <strong>Certification:</strong>
-          <a href="https://www.datacamp.com/courses/introduction-to-sql" target="_blank">DataCamp: Introduction to SQL</a>
-        </li>
-      </ul>
-    </div>
+        </div>
+      </section>
 
-    <!-- Repeat similar structure for other sections -->
+      <!-- Certifications Section -->
+      <section id="certifications" class="tab hidden">
+        <h2>Certifications</h2>
+        <div class="content-card">
+          <h3>Boost Your Credentials</h3>
+          <ul>
+            <li><a href="https://aws.amazon.com/certification/certified-solutions-architect-associate/" target="_blank">AWS Certified Solutions Architect</a></li>
+            <li><a href="https://learn.microsoft.com/en-us/certifications/azure-fundamentals/" target="_blank">Microsoft Azure Fundamentals</a></li>
+            <li><a href="https://www.google.com/analytics/academy/" target="_blank">Google Analytics Certification</a></li>
+            <li><a href="https://www.simplilearn.com/aws-certified-solutions-architect-associate-training-article" target="_blank">AWS Certified Solutions Architect (Simplilearn)</a></li>
+            <li><a href="https://www.coursera.org/professional-certificates/google-it-support" target="_blank">Google IT Support Professional Certificate</a></li>
+          </ul>
+        </div>
+      </section>
 
-  </main>
+      <!-- Playgrounds Section -->
+      <section id="playgrounds" class="tab hidden">
+        <h2>Free Playgrounds</h2>
+        <div class="content-card">
+          <h3>Try Coding Online</h3>
+          <ul>
+            <li><a href="https://play.golang.org" target="_blank">Go Playground</a></li>
+            <li><a href="https://www.tutorialspoint.com/compile_cpp_online.php" target="_blank">C++ Compiler (TutorialsPoint)</a></li>
+            <li><a href="https://www.jupyter.org/try" target="_blank">Jupyter Notebooks (Python)</a></li>
+            <li><a href="https://replit.com" target="_blank">Replit (Online IDE for multiple languages)</a></li>
+            <li><a href="https://www.codewars.com" target="_blank">Codewars (Coding Challenges)</a></li>
+          </ul>
+        </div>
+      </section>
 
-  <footer>
-    <p>Made with ❤️ for you.</p>
-  </footer>
+      <!-- Tools Section -->
+      <section id="tools" class="tab hidden">
+        <h2>Tools for Developers</h2>
+        <div class="content-card">
+          <h3>Essential Tools</h3>
+          <ul>
+            <li><a href="https://postman.com" target="_blank">Postman (API testing)</a></li>
+            <li><a href="https://github.com" target="_blank">GitHub (Code repository)</a></li>
+            <li><a href="https://www.docker.com" target="_blank">Docker (Containerization)</a></li>
+            <li><a href="https://www.jetbrains.com/idea/" target="_blank">IntelliJ IDEA (IDE)</a></li>
+            <li><a href="https://www.visualstudio.com" target="_blank">Visual Studio (IDE)</a></li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </div>
 
   <script src="script.js"></script>
 </body>
