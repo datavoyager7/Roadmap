@@ -44,6 +44,7 @@
             padding-top: 20px;
             padding-left: 15px;
             overflow-y: auto;
+            margin-top: 60px;
         }
         .sidebar a {
             padding: 10px;
@@ -84,6 +85,13 @@
         }
         h2 {
             color: #003366;
+        }
+        #searchResults {
+            margin-top: 20px;
+        }
+        #noResults {
+            color: red;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -133,6 +141,14 @@
             <li><a href="https://www.tutorialspoint.com/big_data_analytics/index.htm" target="_blank">Big Data Tutorial (TutorialsPoint)</a></li>
             <li><a href="https://databricks.com/solutions/data-engineering" target="_blank">Spark for Data Engineering (Databricks)</a></li>
             <li><a href="https://www.udemy.com/course/apache-spark-for-beginners/" target="_blank">Apache Spark for Beginners (Udemy)</a></li>
+        </ul>
+
+        <h3>AWS & Azure</h3>
+        <ul class="w3-ul w3-light-grey">
+            <li><a href="https://aws.amazon.com/training/learning-paths/" target="_blank">AWS Training (Learning Paths)</a></li>
+            <li><a href="https://azure.microsoft.com/en-us/training/" target="_blank">Azure Training (Learning Paths)</a></li>
+            <li><a href="https://www.udemy.com/course/aws-certified-solutions-architect-associate/" target="_blank">AWS Solutions Architect Course (Udemy)</a></li>
+            <li><a href="https://learn.microsoft.com/en-us/azure/cognitive-services/" target="_blank">Azure Cognitive Services (Documentation)</a></li>
         </ul>
     </div>
 
@@ -214,22 +230,33 @@
     }
 
     function searchFunction() {
-        var input, filter, sections, a, i, txtValue;
+        var input, filter, sections, a, i, txtValue, found;
         input = document.getElementById("searchInput");
         filter = input.value.toUpperCase();
         sections = document.querySelectorAll(".w3-ul");
-        
+        found = false;
+
         sections.forEach(function(section) {
             a = section.getElementsByTagName("a");
             for (i = 0; i < a.length; i++) {
                 txtValue = a[i].textContent || a[i].innerText;
                 if (txtValue.toUpperCase().indexOf(filter) > -1) {
                     a[i].style.display = "";
+                    found = true;
                 } else {
                     a[i].style.display = "none";
                 }
             }
         });
+
+        var results = document.getElementById('searchResults');
+        var noResults = document.getElementById('noResults');
+        if (!found) {
+            results.innerHTML = '';
+            noResults.innerHTML = 'No search results found.';
+        } else {
+            noResults.innerHTML = '';
+        }
     }
 </script>
 
