@@ -20,6 +20,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
         }
         .navbar input[type="text"] {
             width: 200px;
@@ -44,12 +48,13 @@
             height: 100%;
             width: 250px;
             position: fixed;
-            top: 60px; /* Move the sidebar down to match with the navbar */
+            top: 60px; /* Move the sidebar below the navbar */
             left: 0;
             background-color: #2f4f7f;
             padding-top: 20px;
             padding-left: 15px;
             overflow-y: auto;
+            z-index: 999;
         }
         .sidebar a {
             padding: 10px;
@@ -65,6 +70,7 @@
         .main-content {
             margin-left: 260px;
             padding: 20px;
+            margin-top: 60px; /* Offset for navbar */
         }
         .tab-content {
             display: none;
@@ -97,6 +103,13 @@
         #noResults {
             color: red;
             margin-top: 20px;
+        }
+        #searchResultsList {
+            list-style-type: none;
+            padding: 0;
+        }
+        #searchResultsList li {
+            margin: 5px 0;
         }
     </style>
 </head>
@@ -213,11 +226,18 @@
         <h2>Courses & Certifications</h2>
         <ul class="w3-ul w3-light-grey">
             <li><a href="https://www.coursera.org/professional-certificates/data-engineering" target="_blank">Coursera - Data Engineering Professional Certificate</a></li>
-            <li><a href="https://www.udemy.com/course/the-ultimate-hands-on-course-to-master-sql/" target="_blank">Udemy - Master SQL for Data Engineering</a></li>
-            <li><a href="https://www.datacamp.com/courses/advanced-sql-for-data-engineers" target="_blank">DataCamp - Advanced SQL for Data Engineers</a></li>
+            <li><a href="https://www.udacity.com/course/data-engineering-nanodegree--nd027" target="_blank">Udacity - Data Engineering Nanodegree</a></li>
+            <li><a href="https://www.datacamp.com/tracks/data-engineer" target="_blank">DataCamp - Data Engineer Career Track</a></li>
             <li><a href="https://www.edx.org/professional-certificate/azure-data-engineering" target="_blank">edX - Azure Data Engineering Certification</a></li>
             <li><a href="https://www.udemy.com/course/aws-certified-solutions-architect-associate/" target="_blank">Udemy - AWS Solutions Architect Course</a></li>
         </ul>
+    </div>
+
+    <!-- Search Results Section -->
+    <div id="searchResults" style="display: none;">
+        <h2>Search Results:</h2>
+        <ul id="searchResultsList"></ul>
+        <div id="noResults" style="color: red;"></div>
     </div>
 
 </div>
@@ -271,6 +291,9 @@
         if (!foundResults) {
             noResults.textContent = "No results found.";
         }
+
+        // Display search results section
+        document.getElementById('searchResults').style.display = resultsList.innerHTML ? 'block' : 'none';
     }
 </script>
 
