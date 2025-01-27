@@ -17,6 +17,9 @@
             color: white;
             padding: 10px 20px;
             text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         .navbar input[type="text"] {
             width: 200px;
@@ -34,17 +37,19 @@
         .navbar button:hover {
             background-color: #5f76a9;
         }
+        .navbar img {
+            height: 50px;
+        }
         .sidebar {
             height: 100%;
             width: 250px;
             position: fixed;
-            top: 0;
+            top: 60px; /* Move the sidebar down to match with the navbar */
             left: 0;
             background-color: #2f4f7f;
             padding-top: 20px;
             padding-left: 15px;
             overflow-y: auto;
-            margin-top: 60px;
         }
         .sidebar a {
             padding: 10px;
@@ -99,9 +104,12 @@
 
 <!-- Navigation Bar -->
 <div class="navbar">
+    <img src="https://via.placeholder.com/150" alt="Logo"> <!-- Add your logo here -->
     <h1>Data Engineering Roadmap</h1>
-    <input type="text" id="searchInput" placeholder="Search..." onkeyup="searchFunction()">
-    <button onclick="searchFunction()">Search</button>
+    <div>
+        <input type="text" id="searchInput" placeholder="Search..." onkeyup="searchFunction()">
+        <button onclick="searchFunction()">Search</button>
+    </div>
 </div>
 
 <!-- Sidebar -->
@@ -207,8 +215,8 @@
             <li><a href="https://www.coursera.org/professional-certificates/data-engineering" target="_blank">Coursera - Data Engineering Professional Certificate</a></li>
             <li><a href="https://www.udemy.com/course/the-ultimate-hands-on-course-to-master-sql/" target="_blank">Udemy - Master SQL for Data Engineering</a></li>
             <li><a href="https://www.datacamp.com/courses/advanced-sql-for-data-engineers" target="_blank">DataCamp - Advanced SQL for Data Engineers</a></li>
-            <li><a href="https://www.edx.org/professional-certificate/microsoft/data-science-and-ai" target="_blank">edX - Microsoft Data Science & AI Certification</a></li>
-            <li><a href="https://www.linkedin.com/learning/learning-data-engineering-2" target="_blank">LinkedIn Learning - Learning Data Engineering</a></li>
+            <li><a href="https://www.edx.org/professional-certificate/azure-data-engineering" target="_blank">edX - Azure Data Engineering Certification</a></li>
+            <li><a href="https://www.udemy.com/course/aws-certified-solutions-architect-associate/" target="_blank">Udemy - AWS Solutions Architect Course</a></li>
         </ul>
     </div>
 
@@ -216,7 +224,7 @@
 
 <!-- Footer -->
 <footer>
-    <p>Data Engineering Roadmap | Learn & Upskill for Free!</p>
+    <p>&copy; 2025 Data Engineering Roadmap. All rights reserved.</p>
 </footer>
 
 <script>
@@ -225,37 +233,43 @@
         tabs.forEach(function(tab) {
             tab.classList.remove('active-tab');
         });
-        var activeTab = document.getElementById(tabId);
-        activeTab.classList.add('active-tab');
+
+        var links = document.querySelectorAll('.tab-link');
+        links.forEach(function(link) {
+            link.classList.remove('w3-bold');
+        });
+
+        document.getElementById(tabId).classList.add('active-tab');
     }
 
     function searchFunction() {
-        var input, filter, sections, a, i, txtValue, found;
-        input = document.getElementById("searchInput");
-        filter = input.value.toUpperCase();
-        sections = document.querySelectorAll(".w3-ul");
-        found = false;
+        var input = document.getElementById('searchInput').value.toLowerCase();
+        var resultsList = document.getElementById('searchResultsList');
+        var noResults = document.getElementById('noResults');
+        resultsList.innerHTML = '';
+        noResults.textContent = '';
+
+        var sections = document.querySelectorAll('.tab-content');
+        var foundResults = false;
 
         sections.forEach(function(section) {
-            a = section.getElementsByTagName("a");
-            for (i = 0; i < a.length; i++) {
-                txtValue = a[i].textContent || a[i].innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    a[i].style.display = "";
-                    found = true;
-                } else {
-                    a[i].style.display = "none";
+            var items = section.querySelectorAll('a');
+            items.forEach(function(item) {
+                if (item.textContent.toLowerCase().includes(input)) {
+                    var resultItem = document.createElement('li');
+                    var link = document.createElement('a');
+                    link.href = item.href;
+                    link.target = "_blank";
+                    link.textContent = item.textContent;
+                    resultItem.appendChild(link);
+                    resultsList.appendChild(resultItem);
+                    foundResults = true;
                 }
-            }
+            });
         });
 
-        var results = document.getElementById('searchResults');
-        var noResults = document.getElementById('noResults');
-        if (!found) {
-            results.innerHTML = '';
-            noResults.innerHTML = 'No search results found.';
-        } else {
-            noResults.innerHTML = '';
+        if (!foundResults) {
+            noResults.textContent = "No results found.";
         }
     }
 </script>
