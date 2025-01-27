@@ -1,136 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Tech Roadmap</title>
-    <!-- W3.CSS for layout and responsiveness -->
+    <title>Data Engineering Roadmap</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: "Arial", sans-serif;
+            background-color: #f7f9fc;
+        }
+        .navbar {
+            background-color: #003366;
+            color: white;
+            padding: 10px 20px;
+        }
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #2f4f7f;
+            padding-top: 20px;
+            padding-left: 15px;
+            overflow-y: auto;
+        }
+        .sidebar a {
+            padding: 10px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: block;
+        }
+        .sidebar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .main-content {
+            margin-left: 260px;
+            padding: 20px;
+        }
+        .tab-content {
+            display: none;
+        }
+        .active-tab {
+            display: block;
+        }
+        .tab-link {
+            cursor: pointer;
+        }
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
 </head>
+<body>
 
-<body class="w3-light-grey">
+<!-- Navigation Bar -->
+<div class="navbar">
+    <h1>Data Engineering Roadmap</h1>
+</div>
 
-    <!-- Topbar -->
-    <div class="w3-bar w3-blue w3-padding-16">
-        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-xlarge w3-text-white">Tech Roadmap</a>
-        <input type="text" class="w3-input w3-border w3-light-grey w3-margin-left" placeholder="Search..." id="searchBar" onkeyup="searchContent()">
+<!-- Sidebar -->
+<div class="sidebar">
+    <a class="tab-link" onclick="openTab('home')">Home</a>
+    <a class="tab-link" onclick="openTab('podcasts')">Podcasts</a>
+    <a class="tab-link" onclick="openTab('webinars')">Webinars</a>
+    <a class="tab-link" onclick="openTab('aiVideos')">AI Videos</a>
+    <a class="tab-link" onclick="openTab('resources')">Resources</a>
+    <a class="tab-link" onclick="openTab('courses')">Courses & Certifications</a>
+    <a class="tab-link" onclick="openTab('playgrounds')">Playgrounds</a>
+</div>
+
+<!-- Main Content -->
+<div class="main-content">
+    <div id="home" class="tab-content active-tab">
+        <h2>Welcome to Data Engineering Roadmap</h2>
+        <p>This roadmap will help you become proficient in Data Engineering, AI, and Machine Learning.</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Vector_Engineering_Illustration.jpg" alt="Data Engineering" />
+    </div>
+    
+    <div id="podcasts" class="tab-content">
+        <h2>Podcasts to Follow</h2>
+        <ul class="w3-ul w3-light-grey">
+            <li><a href="https://dataskeptic.com/" target="_blank">Data Skeptic Podcast</a></li>
+            <li><a href="https://www.dataengineeringpodcast.com/" target="_blank">The Data Engineering Podcast</a></li>
+            <li><a href="https://lexfridman.com/podcast/" target="_blank">Lex Fridman Podcast</a></li>
+            <li><a href="https://www.alignmentforum.org/posts/24d6qpoV2WzqYjSu8/ai-alignment-podcast" target="_blank">AI Alignment Podcast</a></li>
+            <li><a href="https://datascienceathome.com/" target="_blank">Data Science at Home Podcast</a></li>
+        </ul>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Podcast_Logo.jpg" alt="Podcasts" />
     </div>
 
-    <div class="w3-row">
-        <!-- Sidebar -->
-        <div class="w3-col l3 w3-sidenav w3-blue w3-animate-left w3-padding-16" style="height:100%" id="mySidebar">
-            <div class="w3-container w3-center">
-                <img src="https://via.placeholder.com/150" alt="Avatar" class="w3-circle w3-margin-top" />
-                <h2 class="w3-text-white">Tech Roadmap</h2>
-            </div>
-            <div class="w3-bar-block">
-                <a href="javascript:void(0)" onclick="openTab('overview')" class="w3-bar-item w3-button w3-text-white"><i class="fas fa-home"></i> Overview</a>
-                <a href="javascript:void(0)" onclick="openTab('courses')" class="w3-bar-item w3-button w3-text-white"><i class="fas fa-book"></i> Courses</a>
-                <a href="javascript:void(0)" onclick="openTab('certifications')" class="w3-bar-item w3-button w3-text-white"><i class="fas fa-certificate"></i> Certifications</a>
-                <a href="javascript:void(0)" onclick="openTab('playgrounds')" class="w3-bar-item w3-button w3-text-white"><i class="fas fa-laptop-code"></i> Playgrounds</a>
-                <a href="javascript:void(0)" onclick="openTab('tools')" class="w3-bar-item w3-button w3-text-white"><i class="fas fa-tools"></i> Tools</a>
-            </div>
-        </div>
-
-        <!-- Main Content -->
-        <div class="w3-col l9 w3-padding-32">
-            <div id="overview" class="tab-content w3-container w3-padding-large w3-border">
-                <h2>Welcome to Your Learning Path</h2>
-                <p>This roadmap is designed to help you grow your tech skills step by step. Explore each section to discover courses, tools, certifications, and more!</p>
-                <img src="https://via.placeholder.com/700x300" alt="Learning Path" class="w3-image w3-margin-bottom">
-            </div>
-
-            <div id="courses" class="tab-content w3-container w3-padding-large w3-border" style="display:none;">
-                <h2>Tech Courses</h2>
-                <ul class="w3-ul w3-light-grey">
-                    <li><a href="https://www.coursera.org/learn/aws-fundamentals-going-cloud-native" target="_blank">AWS Fundamentals</a></li>
-                    <li><a href="https://www.coursera.org/learn/azure-fundamentals" target="_blank">Azure Fundamentals</a></li>
-                    <li><a href="https://www.udemy.com/course/the-complete-javascript-course/" target="_blank">Complete JavaScript Course (Udemy)</a></li>
-                    <li><a href="https://www.udemy.com/course/data-science-and-machine-learning-bootcamp-with-r/" target="_blank">Data Science & Machine Learning Bootcamp (Udemy)</a></li>
-                    <li><a href="https://www.edx.org/professional-certificate/microsoft-azure-fundamentals" target="_blank">Microsoft Azure Fundamentals (edX)</a></li>
-                </ul>
-            </div>
-
-            <div id="certifications" class="tab-content w3-container w3-padding-large w3-border" style="display:none;">
-                <h2>Certifications</h2>
-                <ul class="w3-ul w3-light-grey">
-                    <li><a href="https://aws.amazon.com/certification/certified-solutions-architect-associate/" target="_blank">AWS Certified Solutions Architect</a></li>
-                    <li><a href="https://learn.microsoft.com/en-us/certifications/azure-fundamentals/" target="_blank">Microsoft Azure Fundamentals</a></li>
-                    <li><a href="https://www.google.com/analytics/academy/" target="_blank">Google Analytics Certification</a></li>
-                    <li><a href="https://www.simplilearn.com/aws-certified-solutions-architect-associate-training-article" target="_blank">AWS Certified Solutions Architect (Simplilearn)</a></li>
-                    <li><a href="https://www.coursera.org/professional-certificates/google-it-support" target="_blank">Google IT Support Professional Certificate</a></li>
-                </ul>
-            </div>
-
-            <div id="playgrounds" class="tab-content w3-container w3-padding-large w3-border" style="display:none;">
-                <h2>Free Playgrounds</h2>
-                <ul class="w3-ul w3-light-grey">
-                    <li><a href="https://play.golang.org" target="_blank">Go Playground</a></li>
-                    <li><a href="https://www.tutorialspoint.com/compile_cpp_online.php" target="_blank">C++ Compiler (TutorialsPoint)</a></li>
-                    <li><a href="https://www.jupyter.org/try" target="_blank">Jupyter Notebooks (Python)</a></li>
-                    <li><a href="https://replit.com" target="_blank">Replit (Online IDE for multiple languages)</a></li>
-                    <li><a href="https://www.codewars.com" target="_blank">Codewars (Coding Challenges)</a></li>
-                </ul>
-            </div>
-
-            <div id="tools" class="tab-content w3-container w3-padding-large w3-border" style="display:none;">
-                <h2>Tools for Developers</h2>
-                <ul class="w3-ul w3-light-grey">
-                    <li><a href="https://postman.com" target="_blank">Postman (API testing)</a></li>
-                    <li><a href="https://github.com" target="_blank">GitHub (Code repository)</a></li>
-                    <li><a href="https://www.docker.com" target="_blank">Docker (Containerization)</a></li>
-                    <li><a href="https://www.jetbrains.com/idea/" target="_blank">IntelliJ IDEA (IDE)</a></li>
-                    <li><a href="https://www.visualstudio.com" target="_blank">Visual Studio (IDE)</a></li>
-                </ul>
-            </div>
-        </div>
+    <div id="webinars" class="tab-content">
+        <h2>AI & Data Engineering Webinars</h2>
+        <ul class="w3-ul w3-light-grey">
+            <li><a href="https://cloud.google.com/blog/topics/partners/announcing-free-webinars-from-google-cloud" target="_blank">Google Cloud Webinars</a></li>
+            <li><a href="https://www.microsoft.com/en-us/ai/ai-webinars" target="_blank">AI & Data Science Webinars by Microsoft</a></li>
+            <li><a href="https://www.youtube.com/user/googlecloudplatform" target="_blank">Google Cloud YouTube Channel (Data Engineering Webinars)</a></li>
+            <li><a href="https://www.youtube.com/user/MicrosoftAzure" target="_blank">Microsoft Azure YouTube Channel (AI & Data Webinars)</a></li>
+            <li><a href="https://www.datacamp.com/webinars" target="_blank">DataCamp's Free Webinars</a></li>
+        </ul>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Webinar_event.jpg" alt="Webinars" />
     </div>
 
-    <!-- Footer -->
-    <footer class="w3-container w3-blue w3-padding-16 w3-margin-top">
-        <p class="w3-text-white">Tech Roadmap | All Rights Reserved &copy; 2025</p>
-    </footer>
+    <div id="aiVideos" class="tab-content">
+        <h2>AI and Data Science Videos to Watch</h2>
+        <ul class="w3-ul w3-light-grey">
+            <li><a href="https://www.youtube.com/channel/UC_6nSFd7ZycnjHuY5o2fZg" target="_blank">Data Engineering on Google Cloud Platform</a></li>
+            <li><a href="https://www.youtube.com/c/ArtificialIntelligenceChannel" target="_blank">The Artificial Intelligence Channel</a></li>
+            <li><a href="https://www.youtube.com/c/DeepLearningAI" target="_blank">DeepLearning.AI YouTube Channel</a></li>
+            <li><a href="https://www.youtube.com/c/DataCamp" target="_blank">DataCamp's AI Tutorials</a></li>
+            <li><a href="https://www.youtube.com/c/MITCSAIL" target="_blank">MIT AI & Robotics Research Videos</a></li>
+        </ul>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a1/Artificial_intelligence_in_technology.jpg" alt="AI and Data Science Videos" />
+    </div>
 
-    <script>
-        function openTab(tabName) {
-            var i, x;
-            x = document.getElementsByClassName("tab-content");
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
-            }
-            document.getElementById(tabName).style.display = "block";
-        }
+    <div id="resources" class="tab-content">
+        <h2>Additional Resources</h2>
+        <ul class="w3-ul w3-light-grey">
+            <li><a href="https://www.kaggle.com/" target="_blank">Kaggle (Datasets and Challenges)</a></li>
+            <li><a href="https://www.coursera.org/" target="_blank">Coursera (Free Courses)</a></li>
+            <li><a href="https://www.edx.org/" target="_blank">edX (Free Learning from Top Universities)</a></li>
+            <li><a href="https://www.fast.ai/" target="_blank">Fast.ai (Free Deep Learning Courses)</a></li>
+            <li><a href="https://ai.google/education/" target="_blank">Google AI (Free Resources)</a></li>
+        </ul>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Kaggle_logo.png" alt="Additional Resources" />
+    </div>
 
-        function searchContent() {
-            var input, filter, ul, li, a, i, txtValue;
-            input = document.getElementById("searchBar");
-            filter = input.value.toUpperCase();
-            ul = document.querySelectorAll('.w3-ul');
-            for (i = 0; i < ul.length; i++) {
-                li = ul[i].getElementsByTagName("li");
-                for (let j = 0; j < li.length; j++) {
-                    a = li[j].getElementsByTagName("a")[0];
-                    txtValue = a.textContent || a.innerText;
-                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                        li[j].style.display = "";
-                    } else {
-                        li[j].style.display = "none";
-                    }
-                }
-            }
-        }
+    <div id="courses" class="tab-content">
+        <h2>Courses & Certifications</h2>
+        <ul class="w3-ul w3-light-grey">
+            <li><a href="https://www.coursera.org/professional-certificates/data-engineering" target="_blank">Coursera - Data Engineering Professional Certificate</a></li>
+            <li><a href="https://www.udemy.com/course/the-ultimate-hands-on-course-to-master-sql/" target="_blank">Udemy - Master SQL for Data Engineering</a></li>
+            <li><a href="https://www.datacamp.com/courses/advanced-sql-for-data-engineers" target="_blank">DataCamp - Advanced SQL for Data Engineers</a></li>
+            <li><a href="https://www.edx.org/professional-certificate/microsoft/data-science-and-ai" target="_blank">edX - Microsoft Data Science & AI Certification</a></li>
+            <li><a href="https://www.linkedin.com/learning/learning-data-engineering-2" target="_blank">LinkedIn Learning - Learning Data Engineering</a></li>
+        </ul>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Udemy_logo_2018.svg" alt="Courses & Certifications" />
+    </div>
 
-        // Default open tab
-        openTab('overview');
-    </script>
+    <div id="playgrounds" class="tab-content">
+        <h2>Playgrounds for Practice</h2>
+        <ul class="w3-ul w3-light-grey">
+            <li><a href="https://www.kaggle.com/" target="_blank">Kaggle - Datasets & Competitions</a></li>
+            <li><a href="https://www.google.com/colab" target="_blank">Google Colab - Free Python Notebooks</a></li>
+            <li><a href="https://replit.com/" target="_blank">Replit - Online IDE for Data Science</a></li>
+            <li><a href="https://www.databricks.com/try-databricks" target="_blank">Databricks - Free Trial for Spark-Based Projects</a></li>
+            <li><a href="https://www.codeskulptor.org/" target="_blank">CodeSkulptor - Python Playground</a></li>
+        </ul>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Kaggle_logo.svg" alt="Playgrounds for Practice" />
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <p>Data Engineering Roadmap | Learn & Upskill for Free!</p>
+</footer>
+
+<script>
+    function openTab(tabId) {
+        // Hide all tabs
+        var tabs = document.querySelectorAll('.tab-content');
+        tabs.forEach(function(tab) {
+            tab.classList.remove('active-tab');
+        });
+
+        // Show selected tab
+        var activeTab = document.getElementById(tabId);
+        activeTab.classList.add('active-tab');
+    }
+</script>
 
 </body>
-
 </html>
