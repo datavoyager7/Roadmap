@@ -1,0 +1,63 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.w3-sidenav {
+    height: 100%;
+    width: 250px;
+}
+
+.w3-bar-item {
+    font-size: 1.2rem;
+    padding: 10px;
+}
+
+.w3-bar-item:hover {
+    background-color: #1e3a5f;
+    text-decoration: none;
+}
+
+.w3-text-white {
+    color: white !important;
+}
+
+.w3-col.l3 {
+    padding: 0;
+}
+
+.w3-col.l9 {
+    padding-left: 30px;
+}
+
+.w3-padding-32 {
+    padding: 32px;
+}
+
+.w3-border {
+    border: 1px solid #ddd;
+}
+
+.w3-light-grey {
+    background-color: #f7f7f7 !important;
+}
+
+ul.w3-ul li {
+    margin-bottom: 15px;
+}
+
+ul.w3-ul li a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+ul.w3-ul li a:hover {
+    text-decoration: underline;
+}
+
+.w3-input {
+    width: 100%;
+}
+
+.w3-padding-large {
+    padding: 20px;
+}
