@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Engineering Roadmap</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Happy Birthday!</h1>
+    <p>This roadmap is designed for your journey to mastering data engineering. Track your progress, complete certifications, and practice on free platforms!</p>
+  </header>
+
+  <main>
+    <!-- Tabs Navigation -->
+    <div class="tabs">
+      <button class="tab-link active" onclick="openTab(event, 'fundamentals')">1. Fundamentals</button>
+      <button class="tab-link" onclick="openTab(event, 'big-data')">2. Big Data</button>
+      <button class="tab-link" onclick="openTab(event, 'cloud')">3. Cloud Platforms</button>
+      <button class="tab-link" onclick="openTab(event, 'mlops')">4. MLOps</button>
+      <button class="tab-link" onclick="openTab(event, 'tools')">5. Productivity Tools</button>
+    </div>
+
+    <!-- Tab Content -->
+
+    <!-- Fundamentals Tab -->
+    <div id="fundamentals" class="tab-content active">
+      <h2>1. Data Engineering Fundamentals</h2>
+      <ul>
+        <li>
+          <input type="checkbox" id="sql" onclick="saveProgress('sql')" />
+          <label for="sql">Learn SQL for Data Engineering</label>
+          <a href="https://www.coursera.org/learn/sql-for-data-science" target="_blank">Go to Course</a>
+        </li>
+        <li>
+          <input type="checkbox" id="etl" onclick="saveProgress('etl')" />
+          <label for="etl">Understand ETL Concepts</label>
+          <a href="https://towardsdatascience.com/what-is-etl-process-35f1c3e1e249" target="_blank">Learn More</a>
+        </li>
+        <li>
+          <strong>Free Practice Platforms:</strong>
+          <ul>
+            <li><a href="https://sqlzoo.net/" target="_blank">SQLZoo</a> - Practice SQL queries.</li>
+            <li><a href="https://mode.com/sql-tutorial/" target="_blank">Mode Analytics</a> - Hands-on SQL tutorials.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Certification:</strong>
+          <a href="https://www.datacamp.com/courses/introduction-to-sql" target="_blank">DataCamp: Introduction to SQL</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Repeat similar structure for other sections -->
+
+  </main>
+
+  <footer>
+    <p>Made with ❤️ for you.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
