@@ -18,6 +18,22 @@
             padding: 10px 20px;
             text-align: center;
         }
+        .navbar input[type="text"] {
+            width: 200px;
+            padding: 5px;
+            margin-top: 5px;
+            border-radius: 5px;
+        }
+        .navbar button {
+            background-color: #2f4f7f;
+            color: white;
+            border: none;
+            padding: 6px 10px;
+            cursor: pointer;
+        }
+        .navbar button:hover {
+            background-color: #5f76a9;
+        }
         .sidebar {
             height: 100%;
             width: 250px;
@@ -76,10 +92,13 @@
 <!-- Navigation Bar -->
 <div class="navbar">
     <h1>Data Engineering Roadmap</h1>
+    <input type="text" id="searchInput" placeholder="Search..." onkeyup="searchFunction()">
+    <button onclick="searchFunction()">Search</button>
 </div>
 
 <!-- Sidebar -->
 <div class="sidebar">
+    <a class="tab-link" onclick="openTab('home')">Home</a>
     <a class="tab-link" onclick="openTab('tutorials')">Tutorials</a>
     <a class="tab-link" onclick="openTab('videos')">Videos</a>
     <a class="tab-link" onclick="openTab('podcasts')">Podcasts</a>
@@ -91,8 +110,14 @@
 <!-- Main Content -->
 <div class="main-content">
 
+    <!-- Home Section -->
+    <div id="home" class="tab-content active-tab">
+        <h2>Welcome to the Data Engineering Roadmap</h2>
+        <p>This site is a comprehensive resource for aspiring data engineers. Use the sections on the left to navigate through tutorials, videos, podcasts, and more!</p>
+    </div>
+
     <!-- Tutorials Section -->
-    <div id="tutorials" class="tab-content active-tab">
+    <div id="tutorials" class="tab-content">
         <h2>Core Tutorials and Foundations</h2>
         
         <h3>SQL and Database Skills</h3>
@@ -180,15 +205,31 @@
 
 <script>
     function openTab(tabId) {
-        // Hide all tabs
         var tabs = document.querySelectorAll('.tab-content');
         tabs.forEach(function(tab) {
             tab.classList.remove('active-tab');
         });
-
-        // Show selected tab
         var activeTab = document.getElementById(tabId);
         activeTab.classList.add('active-tab');
+    }
+
+    function searchFunction() {
+        var input, filter, sections, a, i, txtValue;
+        input = document.getElementById("searchInput");
+        filter = input.value.toUpperCase();
+        sections = document.querySelectorAll(".w3-ul");
+        
+        sections.forEach(function(section) {
+            a = section.getElementsByTagName("a");
+            for (i = 0; i < a.length; i++) {
+                txtValue = a[i].textContent || a[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    a[i].style.display = "";
+                } else {
+                    a[i].style.display = "none";
+                }
+            }
+        });
     }
 </script>
 
